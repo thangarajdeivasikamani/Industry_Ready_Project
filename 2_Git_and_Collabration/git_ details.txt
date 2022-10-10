@@ -1,0 +1,94 @@
+
+Create the brnach and working
+==============================
+Create the main 
+
+Create branch   example deverloper1
+
+checkout the branch deverloper1
+update the file
+push the chnages to  deverloper1
+
+Raise the pull request from developer1
+
+
+
+Create branch   example deverloper2
+
+checkout the branch deverloper2
+update the file
+push the chnages to  deverloper2
+
+Raise the pull request from developer2
+
+
+
+
+
+
+How to collabrate more than one person:
+=======================================
+
+
+How to collabrate the more than one person in git hub?
+
+Go to specific repo - sETTING -Collabrate
+
+Enter the mail id 
+
+The person has to go to mail & accept the invite ( with in 7 days)
+
+
+Next the person who I asked has to fork the repo
+
+Then clone the repo in local
+
+Example that person open the code in visual studio
+make the change in the file & push
+
+Now we can see that person repo 1 commit ahead of base
+
+Now that person has to raise the pull request
+
+Now original owner can see the pull request
+
+Now he has to merge the pull request
+
+Now original base repo got updated
+
+Here also owner has revert the changes
+
+
+Now another person go to his repo - sync fork.
+
+
+Now owner has changed the new edit - we can see one commit beyond
+
+again press syn fork
+
+Now original owner can see the both person details
+
+
+
+
+How to resolve the conflicts?
+
+
+Assume person 1 opened add.py added print(Hello) - Pushed the code
+Person 2 also opend add.py added print(Hello update)
+Now he add- Conflict message will display
+resolve & commit 
+Raise the pull request
+
+
+How to add the code with username and password?
+
+git remote add github git@github.com:Thangaraj/reponame.git
+
+Docker installtion:
+
+
+https://www.youtube.com/watch?v=vnAN9pmgc2g
+
+
+

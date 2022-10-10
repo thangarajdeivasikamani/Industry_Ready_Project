@@ -1,0 +1,15 @@
+Kafka setup
+dependa pad for notification
+
+
+confluent
+
+
+github.com
+
+
+
+rucio/jupyterhub  - docker
+jupyter/datascience-notebook
+
+docker run -p 888:888 jupyter/datascience-notebook

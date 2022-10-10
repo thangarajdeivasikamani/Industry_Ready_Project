@@ -1,0 +1,263 @@
+Docker exe: https://github.com/docker-archive/toolbox/releases/tag/v19.03.1
+
+
+
+https://docs.google.com/spreadsheets/d/1z77-43OUc-ceneJjAIyLIqaRbGe2r9b09lAlgLjee64/htmlview?pru=AAABg9pyptI*A_lzU-K2PokG3sjNGktg0Q
+
+team members:
+
+https://docs.google.com/spreadsheets/d/1Rhgae-mGqyjJQ719Eoek3WtP8WIw_W91C3-b9KTQzFQ/edit#gid=944464804
+
+Doubtclearing:
+
+https://us06web.zoom.us/j/84789218311?pwd=Ky91bXdTZWFuQVprRmw1Mit5NXpKQT09
+
+
+1.Docker image and cotainer e.g What is container
+2.Some basic commands with dockers
+3.Creaate docker image
+4.Run it as a container
+
+
+
+Differents b/w docker images and container?
+
+
+multiple layer in the docer image:
+
+Each layer has subimage and dependencies with previuos
+
+Consider as bwlow:
+
+Base image/os will run the 
+Python image
+requirement.txt image
+mongo DB
+
+Combined all these called images or artificates
+
+
+Suppose pass this image to another person 
+
+When another person run the image 
+
+Will extarct as container and run in his host machine
+
+He can run more than one container
+
+His host machine has 65000 ports
+
+Every image mab be different base os like windows,ubuntu
+
+
+Whenever I run image it became as container
+
+Docker:
+
+Docker image is a package or artifiate
+we can move or share this image
+
+Container:
+
+Save the image in host and run it became as container
+Internally separte isolated container will create
+
+
+Container can't be shared.
+
+
+Docker image needs to updated whenever update required and needs to be shared
+
+can we run multiple images on a single container ?
+
+no
+
+
+Docker use host os kernal .so we can virtual only application
+
+But VM has own kernal & application - that why we need to allocate memory and cpu. So we need to virtual both.
+
+
+Docker is fast becasue . it's very small ,it's like mb size, dose not care about os kernal.
+
+Starting and running - docker is fast. But in vm we need to intinalize lot before starting , like allocate cpu,memory.
+
+Docker is compatability issue. VM can install any machine.
+
+
+Docker run -d -p 80:8000 docker/gertting started
+
+80 is host port
+8000 is container port
+
+
+open the browser & Test 
+
+http://192.168.99.100:8000/
+
+Here 8000 is host port
+
+
+Hello word Program:
+
+. /app  - Copy all folder and file into workdir of docker
+
+Keep the working directory
+
+
+
+
+Create the docker:
+==================
+Create the docker file
+
+FROM python:3.7
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+CMD ["python","app.py"]
+
+
+Here RUN for install cmd is run the application
+
+
+build the docker image
+
+$ docker build -t welcome .                      welcome is image name 
+t meens peseudo-tty kind of tag    last . is build in current local directory
+
+
+now we can see one by installion happening
+
+Now entire docker image created
+
+
+Check docker images we can see welcome-app
+
+Ensure that app.py app.run (host='0.0.0.0',port=5000)
+
+some time windows 127.0.0.1
+
+How to run the image:
+
+docker run -d -p 5000:5000 welcome-app
+
+
+
+Delete the image:
+
+docker stop image_running_id
+
+docker rmi -f image-name
+
+
+
+
+check Running docker:
+
+docker ps
+ 
+docker image checking:
+
+docker images
+
+stop the docker image or
+
+docker stop container id
+
+
+
+How to change the code & build?
+
+Stop
+remove  using docker rmi -f image-nam
+build 
+run
+
+
+How to push?
+
+docker build -t thangarajd/welcome-app . ( may be thangarajd - user name)
+
+after that we can see
+
+docker images thagarajd/welcome-all
+
+
+docker push thangarajd/welcome-app:latest   default will take 
+
+Will ask username and password
+
+
+
+
+How other person will pull?
+
+docker pull thangarajd/welcome-app
+
+
+How the other person run??
+
+docker run -d -p 5000:5000 thangarajd/welcome-app
+
+
+http://192.168.99.100:5000/
+
+
+Go to Docker hub  - Edit the readme file and give how to run info.
+
+
+in short:
+
+docker run -d -p host port:container port image
+docker push <username>/docker image
+
+Instead of hardcode the port we can use docker file EXPOSE 5000  command to port expose.
+
+
+
+Docker Toolbox:
+=====================================================================================================================
+
+may be we need to create the repo in dockerhub & then push
+
+
+https://stackoverflow.com/questions/36663742/docker-unauthorized-authentication-required-upon-push-with-successful-login
+
+===============================================================================================================
+
+
+Git hub action with docker:
+
+https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
+
+
+
+Docker unauthrized error:
+
+
+docker logout
+ reboot the pc
+lanuch the docker quciker terminal
+
+enter command as docker login -u thanagarajd
+
+Login to docker hub- Profile setting -Security
+
+Generate the tocken
+login 
+give key as password
+
+
+
+
+Helloword FAST API:
+
+docker build -t thangarajd/welcome-fastapi_app .
+
+docker run -d -p 5000:8001 thangarajd/welcome-fastapi_app
+
+uvicorn.run(app, host="0.0.0.0", port=8001, log_level="debug")
+
+
+http://192.168.99.100:5000/
